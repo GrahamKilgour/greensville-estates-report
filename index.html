@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greensville Estates Development — Comprehensive Master Report</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green-primary: #2C3E2C;
+            --tan-accent: #8B7355;
+            --bg-cream: #f5f5f0;
+            --bg-light: #fcfcfc;
+            --bg-green-tint: rgba(44, 62, 44, 0.05);
+            --text-primary: #4a4a4a;
+            --text-dark: #2C3E2C;
+            --text-gray: #6b7280;
+            --border-light: #dcdcdc;
+            --border-accent: #2C3E2C;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            color: var(--text-primary);
+            background: #e8e8e3;
+            line-height: 1.6;
+        }
+
+        /* ===== REPORT CONTAINER ===== */
+        .report-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--bg-cream);
+            box-shadow: 0 0 60px rgba(0,0,0,0.1);
+        }
+
+        /* ===== COVER PAGE ===== */
+        .cover-page {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--green-primary) 0%, #1a2e1a 60%, #0f1f0f 100%);
+            color: #fff;
+            padding: 60px 40px;
+            overflow: hidden;
+        }
+
+        .cover-page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="80" opacity="0.02">🌿</text></svg>');
+            background-size: 200px;
+            opacity: 0.3;
+        }
+
+        .cover-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover-logo-placeholder {
+            width: 160px;
+            height: 160px;
+            border: 3px solid rgba(139, 115, 85, 0.5);
+            border-radius: 50%;
+            margin: 0 auto 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .cover-logo-placeholder span {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .cover-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            line-height: 1.15;
+        }
+
+        .cover-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--tan-accent);
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+
+        .cover-divider {
+            width: 80px;
+            height: 2px;
+            background: var(--tan-accent);
+            margin: 0 auto 50px;
+        }
+
+        .cover-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px 60px;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cover-meta-item {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .cover-meta-label {
+            font-weight: 700;
+            color: var(--tan-accent);
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            margin-bottom: 2px;
+        }
+
+        .cover-meta-value {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .cover-status-badge {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 10px 28px;
+            border: 1px solid var(--tan-accent);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--tan-accent);
+        }
+
+        .cover-footer-strip {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 12px;
+            background: var(--tan-accent);
+        }
+
+        /* ===== TABLE OF CONTENTS ===== */
+        .toc-section {
+            padding: 60px 60px 40px;
+            background: var(--bg-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .toc-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .toc-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-bottom: 36px;
+        }
+
+        .toc-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 60px;
+        }
+
+        .toc-group {
+            margin-bottom: 28px;
+        }
+
+        .toc-group-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--tan-accent);
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .toc-item {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+
+        .toc-item a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            display: flex;
+            align-items: baseline;
+            width: 100%;
+        }
+
+        .toc-item a:hover {
+            color: var(--green-primary);
+        }
+
+        .toc-number {
+            font-weight: 700;
+            color: var(--tan-accent);
+            min-width: 28px;
+            font-size: 0.85rem;
+        }
+
+        .toc-label {
+            flex: 1;
+        }
+
+        /* ===== SECTION STYLING ===== */
+        .section {
+            padding: 60px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 8px;
+        }
+
+        .section-icon {
+            color: var(--tan-accent);
+            font-size: 1.25rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .section-number {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--tan-accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .section-description {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin-bottom: 36px;
+            max-width: 750px;
+            line-height: 1.7;
+        }
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 36px 0 16px;
+        }
+
+        h4 {
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 24px 0 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* ===== HIGHLIGHT BOX ===== */
+        .highlight-box {
+            background: var(--bg-green-tint);
+            border-left: 4px solid var(--border-accent);
+            padding: 24px 28px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        .highlight-box-title {
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .highlight-box-title i {
+            color: var(--tan-accent);
+        }
+
+        /* ===== STATUS BADGE ===== */
+        .status-badge {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .status-complete {
+            background: rgba(44, 62, 44, 0.1);
+            color: var(--green-primary);
+        }
+
+        .status-in-progress {
+            background: rgba(139, 115, 85, 0.15);
+            color: #6b5330;
+        }
+
+        .status-pending {
+            background: rgba(107, 114, 128, 0.1);
+            color: var(--text-gray);
+        }
+
+        .status-scheduled {
+            background: rgba(59, 130, 246, 0.1);
+            color: #2563eb;
+        }
+
+        /* ===== TABLES ===== */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.92rem;
+        }
+
+        .data-table thead {
+            background: var(--green-primary);
+            color: #fff;
+        }
+
+        .data-table th {
+            padding: 14px 18px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .data-table td {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border-light);
+            vertical-align: top;
+        }
+
+        .data-table tbody tr:hover {
+            background: var(--bg-green-tint);
+        }
+
+        .data-table tbody tr:nth-child(even) {
+            background: rgba(0,0,0,0.015);
+        }
+
+        .data-table tbody tr:nth-child(even):hover {
+            background: var(--bg-green-tint);
+        }
+
+        /* ===== IMAGE PLACEHOLDER ===== */
+        .image-placeholder {
+            width: 100%;
+            min-height: 300px;
+            background: linear-gradient(135deg, #e8e8e3 0%, #ddd9d0 100%);
+            border: 2px dashed var(--border-light);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 24px 0;
+            color: var(--text-gray);
+            gap: 8px;
+        }
+
+        .image-placeholder i {
+            font-size: 2rem;
+            color: var(--tan-accent);
+            opacity: 0.5;
+        }
+
+        .image-placeholder span {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .image-placeholder .image-desc {
+            font-size: 0.8rem;
+            text-transform: none;
+            letter-spacing: 0;
+            font-weight: 400;
+            max-width: 320px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .image-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 24px 0;
+        }
+
+        .image-row .image-placeholder {
+            min-height: 220px;
+            margin: 0;
+        }
+
+        /* ===== BULLET LISTS ===== */
+        .styled-list {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+        }
+
+        .styled-list li {
+            padding: 8px 0 8px 32px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .styled-list li::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 16px;
+            width: 8px;
+            height: 8px;
+            background: var(--tan-accent);
+            border-radius: 50%;
+        }
+
+        .styled-list.check-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            background: none;
+            color: var(--green-primary);
+            font-size: 0.8rem;
+            top: 10px;
+            left: 4px;
+            width: auto;
+            height: auto;
+            border-radius: 0;
+        }
+
+        /* ===== MILESTONE TIMELINE ===== */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin: 30px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-light);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 28px;
+            padding-bottom: 4px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -33px;
+            top: 4px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 3px solid var(--tan-accent);
+            background: var(--bg-cream);
+            z-index: 1;
+        }
+
+        .timeline-dot.completed {
+            background: var(--green-primary);
+            border-color: var(--green-primary);
+        }
+
+        .timeline-dot.active {
+            background: var(--tan-accent);
+            border-color: var(--tan-accent);
+            box-shadow: 0 0 0 4px rgba(139, 115, 85, 0.2);
+        }
+
+        .timeline-date {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--tan-accent);
+            margin-bottom: 4px;
+        }
+
+        .timeline-title {
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .timeline-desc {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.5;
+        }
+
+        /* ===== KEY METRICS ROW ===== */
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .metric-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        .metric-card i {
+            color: var(--tan-accent);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .metric-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-gray);
+        }
+
+        /* ===== TWO COLUMN LAYOUT ===== */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 24px 0;
+        }
+
+        .two-col-wide-left {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 40px;
+            margin: 24px 0;
+        }
+
+        /* ===== LINK CARD (for appendix) ===== */
+        .link-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 22px;
+            background: var(--bg-light);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .link-card:hover {
+            border-color: var(--tan-accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            transform: translateY(-1px);
+        }
+
+        .link-card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            background: var(--bg-green-tint);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .link-card-icon i {
+            color: var(--green-primary);
+            font-size: 1.1rem;
+        }
+
+        .link-card-content {
+            flex: 1;
+        }
+
+        .link-card-title {
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+            font-size: 0.95rem;
+        }
+
+        .link-card-desc {
+            font-size: 0.82rem;
+            color: var(--text-gray);
+            line-height: 1.4;
+        }
+
+        .link-card-arrow {
+            color: var(--tan-accent);
+            font-size: 0.9rem;
+        }
+
+        .link-card-placeholder {
+            font-size: 0.7rem;
+            color: #c0392b;
+            font-style: italic;
+            margin-top: 4px;
+        }
+
+        /* ===== FOOTER ===== */
+        .report-footer {
+            background: var(--green-primary);
+            color: rgba(255,255,255,0.7);
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .report-footer-left {
+            font-size: 0.85rem;
+        }
+
+        .report-footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .report-footer-right {
+            text-align: right;
+            font-size: 0.8rem;
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            color: var(--tan-accent);
+            text-decoration: none;
+            margin-top: 40px;
+            transition: color 0.2s;
+        }
+
+        .back-to-top:hover {
+            color: var(--green-primary);
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            body { background: #fff; }
+            .report-container { box-shadow: none; }
+            .cover-page { min-height: auto; padding: 80px 40px; break-after: page; }
+            .toc-section { break-after: page; }
+            .section { break-inside: avoid; }
+            .link-card:hover { transform: none; box-shadow: none; }
+            .back-to-top { display: none; }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .section { padding: 40px 24px; }
+            .toc-section { padding: 40px 24px; }
+            .cover-title { font-size: 2.2rem; }
+            .cover-meta { grid-template-columns: 1fr; }
+            .toc-columns { grid-template-columns: 1fr; }
+            .metrics-row { grid-template-columns: 1fr 1fr; }
+            .two-col, .two-col-wide-left { grid-template-columns: 1fr; }
+            .image-row { grid-template-columns: 1fr; }
+            .report-footer { flex-direction: column; text-align: center; gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="report-container">
+
+    <!-- ============================================================ -->
+    <!-- COVER PAGE -->
+    <!-- ============================================================ -->
+    <div class="cover-page" id="top">
+        <div class="cover-content">
+            <div class="cover-logo-placeholder">
+                <!-- PLACEHOLDER: Replace with logo image
+                     Example: <img src="logo.png" alt="Greensville Estates" style="width:120px;"> -->
+                <span>Logo</span>
+            </div>
+            <h1 class="cover-title">Greensville Estates</h1>
+            <p class="cover-subtitle">Comprehensive Multi-Disciplinary Master Report</p>
+            <div class="cover-divider"></div>
+            <div class="cover-meta">
+                <div class="cover-meta-item">
+                    <div class="cover-meta-label">Project Location</div>
+                    <div class="cover-meta-value">190 Highway 8, Hamilton, Ontario</div>
+                </div>
+                <div class="cover-meta-item">
+                    <div class="cover-meta-label">Proponent</div>
+                    <div class="cover-meta-value">Upper Paradise Developments Inc.</div>
+                </div>
+                <div class="cover-meta-item">
+                    <div class="cover-meta-label">Proposal</div>
+                    <div class="cover-meta-value">5-Lot Estate Residential Severance</div>
+                </div>
+                <div class="cover-meta-item">
+                    <div class="cover-meta-label">Report Compiled</div>
+                    <div class="cover-meta-value">January 27, 2026</div>
+                </div>
+            </div>
+            <div class="cover-status-badge">Conditional Approval Phase — Final Regulatory Submissions Pending</div>
+        </div>
+        <div class="cover-footer-strip"></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TABLE OF CONTENTS -->
+    <!-- ============================================================ -->
+    <div class="toc-section" id="toc">
+        <h2 class="toc-title">Table of Contents</h2>
+        <p class="toc-subtitle">Click any section to navigate directly.</p>
+        <div class="toc-columns">
+            <div>
+                <div class="toc-group">
+                    <div class="toc-group-label">Overview</div>
+                    <div class="toc-item">
+                        <a href="#executive-summary">
+                            <span class="toc-number">01</span>
+                            <span class="toc-label">Executive Summary</span>
+                        </a>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#project-status">
+                            <span class="toc-number">02</span>
+                            <span class="toc-label">Current Project Status</span>
+                        </a>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#key-metrics">
+                            <span class="toc-number">03</span>
+                            <span class="toc-label">Key Metrics &amp; At-A-Glance</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="toc-group">
+                    <div class="toc-group-label">Discipline Reports</div>
+                    <div class="toc-item">
+                        <a href="#planning">
+                            <span class="toc-number">04</span>
+                            <span class="toc-label">Planning</span>
+                        </a>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#archaeology">
+                            <span class="toc-number">05</span>
+                            <span class="toc-label">Archaeology</span>
+                        </a>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#environmental">
+                            <span class="toc-number">06</span>
+                            <span class="toc-label">Environmental Assessment</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="toc-group">
+                    <div class="toc-group-label">Discipline Reports (Continued)</div>
+                    <div class="toc-item">
+                        <a href="#hydrogeology">
+                            <span class="toc-number">07</span>
+                            <span class="toc-label">Hydrogeology</span>
+                        </a>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#civil-engineering">
+                            <span class="toc-number">08</span>
+                            <span class="toc-label">Civil Engineering</span>
+                        </a>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#regulatory">
+                            <span class="toc-number">09</span>
+                            <span class="toc-label">Regulatory Coordination</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="toc-group">
+                    <div class="toc-group-label">Reference</div>
+                    <div class="toc-item">
+                        <a href="#timeline">
+                            <span class="toc-number">10</span>
+                            <span class="toc-label">Timeline &amp; Milestones</span>
+                        </a>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#next-steps">
+                            <span class="toc-number">11</span>
+                            <span class="toc-label">Next Steps &amp; Action Items</span>
+                        </a>
+                    </div>
+                    <div class="toc-item">
+                        <a href="#appendix">
+                            <span class="toc-number">12</span>
+                            <span class="toc-label">Appendix — Full Reports &amp; Documents</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 1: EXECUTIVE SUMMARY -->
+    <!-- ============================================================ -->
+    <div class="section" id="executive-summary">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-file-contract"></i>
+            <span class="section-number">Section 01</span>
+        </div>
+        <h2 class="section-title">Executive Summary</h2>
+        <p class="section-description">
+            A consolidated overview of findings from six integrated discipline studies for the Greensville Estates Development.
+        </p>
+
+        <p>
+            The Greensville Estates Development represents a <strong>5.0-hectare estate residential severance</strong> at 190 Highway 8 in the Greensville Rural Settlement Area of Hamilton. This comprehensive master report consolidates findings from six integrated discipline studies: Planning, Archaeology, Environmental Assessment, Hydrogeology, Civil Engineering, and Regulatory Coordination.
+        </p>
+
+        <div class="highlight-box">
+            <div class="highlight-box-title">
+                <i class="fa-solid fa-circle-info"></i> Project Snapshot
+            </div>
+            <p>
+                The Application for Consent was submitted December 23, 2025. The project is currently in the <strong>Conditional Approval Phase</strong> with final regulatory submissions pending. All currently feasible field work is complete. Next milestones are MCM concurrence (Stage 3 then Stage 4) and completion of Phase 2 hydrogeological drilling and testing.
+            </p>
+        </div>
+
+        <!-- PLACEHOLDER: Site overview photo or aerial image -->
+        <div class="image-placeholder">
+            <i class="fa-solid fa-image"></i>
+            <span>Site Overview Image</span>
+            <span class="image-desc">Aerial photo or site plan showing the 5.0-hectare property at 190 Highway 8</span>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 2: CURRENT PROJECT STATUS -->
+    <!-- ============================================================ -->
+    <div class="section" id="project-status">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-clipboard-check"></i>
+            <span class="section-number">Section 02</span>
+        </div>
+        <h2 class="section-title">Current Project Status</h2>
+        <p class="section-description">
+            Status overview across all six disciplines as of January 27, 2026.
+        </p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th style="width: 180px;">Discipline</th>
+                    <th style="width: 180px;">Status</th>
+                    <th>Key Scope &amp; Outcome</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Planning</strong></td>
+                    <td><span class="status-badge status-in-progress">Conditional Approval</span></td>
+                    <td>Application for Consent (5-lot severance); Rural Hamilton Official Plan &amp; Zoning compliance demonstrated</td>
+                </tr>
+                <tr>
+                    <td><strong>Archaeology</strong></td>
+                    <td><span class="status-badge status-in-progress">In Progress</span></td>
+                    <td>Stage 3 submitted to MCM; review pending. Stage 4 field work complete across three archaeological areas. Stage 4 report in progress.</td>
+                </tr>
+                <tr>
+                    <td><strong>Environmental</strong></td>
+                    <td><span class="status-badge status-complete">Complete</span></td>
+                    <td>Environmental Impact Statement and all field assessments complete; compliance demonstrated</td>
+                </tr>
+                <tr>
+                    <td><strong>Hydrogeology</strong></td>
+                    <td><span class="status-badge status-scheduled">Phase 2 Scheduled</span></td>
+                    <td>Phase 2 drilling (2 additional bedrock wells) scheduled to start February 22, 2026. Stepwise program with monitoring.</td>
+                </tr>
+                <tr>
+                    <td><strong>Civil Engineering</strong></td>
+                    <td><span class="status-badge status-pending">Pending</span></td>
+                    <td>Lot grading, servicing, stormwater management, and access design — pending hydrogeology results</td>
+                </tr>
+                <tr>
+                    <td><strong>Regulatory</strong></td>
+                    <td><span class="status-badge status-in-progress">In Progress</span></td>
+                    <td>Multi-agency coordination including City of Hamilton, MCM, HCA, and MTO</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box">
+            <div class="highlight-box-title">
+                <i class="fa-solid fa-flag"></i> Overall Status
+            </div>
+            <p>
+                All currently feasible field work is complete. Next milestones are MCM concurrence (Stage 3 then Stage 4) and completion of Phase 2 hydrogeological drilling and testing. Upon completion, the site will have <strong>3 full-service wells and 4 monitoring wells</strong> for City of Hamilton review.
+            </p>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 3: KEY METRICS -->
+    <!-- ============================================================ -->
+    <div class="section" id="key-metrics">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-chart-simple"></i>
+            <span class="section-number">Section 03</span>
+        </div>
+        <h2 class="section-title">Key Metrics</h2>
+        <p class="section-description">At-a-glance numbers for the Greensville Estates Development.</p>
+
+        <div class="metrics-row">
+            <div class="metric-card">
+                <i class="fa-solid fa-home"></i>
+                <div class="metric-value">5</div>
+                <div class="metric-label">Estate Lots</div>
+            </div>
+            <div class="metric-card">
+                <i class="fa-solid fa-ruler-combined"></i>
+                <div class="metric-value">5.0 ha</div>
+                <div class="metric-label">Total Site Area</div>
+            </div>
+            <div class="metric-card">
+                <i class="fa-solid fa-water"></i>
+                <div class="metric-value">3 + 4</div>
+                <div class="metric-label">Service &amp; Monitor Wells</div>
+            </div>
+            <div class="metric-card">
+                <i class="fa-solid fa-file-contract"></i>
+                <div class="metric-value">6</div>
+                <div class="metric-label">Integrated Disciplines</div>
+            </div>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 4: PLANNING -->
+    <!-- ============================================================ -->
+    <div class="section" id="planning">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-home"></i>
+            <span class="section-number">Section 04</span>
+        </div>
+        <h2 class="section-title">Planning</h2>
+        <p class="section-description">
+            Application for Consent and compliance with Rural Hamilton Official Plan and Zoning By-law.
+        </p>
+
+        <h3>Application Status</h3>
+        <p>
+            The Application for Consent was submitted on <strong>December 23, 2025</strong>, and is currently proceeding through City of Hamilton review and conditions. The application proposes a 5-lot estate residential severance within the Greensville Rural Settlement Area.
+        </p>
+
+        <div class="two-col-wide-left">
+            <div>
+                <h4>Key Planning Details</h4>
+                <ul class="styled-list">
+                    <li>5-lot estate residential severance on 5.0-hectare property</li>
+                    <li>Located in the Greensville Rural Settlement Area</li>
+                    <li>Rural Hamilton Official Plan compliance demonstrated</li>
+                    <li>Zoning compliance confirmed</li>
+                    <li>Application proceeding through City review and conditions</li>
+                </ul>
+            </div>
+            <div>
+                <!-- PLACEHOLDER: Site plan or lot layout diagram -->
+                <div class="image-placeholder" style="min-height: 260px;">
+                    <i class="fa-solid fa-map"></i>
+                    <span>Lot Layout Plan</span>
+                    <span class="image-desc">Draft plan of severance showing 5 proposed lots</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <div class="highlight-box-title">
+                <i class="fa-solid fa-circle-check"></i> Compliance Summary
+            </div>
+            <p>
+                The proposed development has been assessed against all applicable planning policies, including the Provincial Policy Statement, A Place to Grow, the Rural Hamilton Official Plan, and the Zoning By-law. Compliance has been demonstrated across all policy areas.
+            </p>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 5: ARCHAEOLOGY -->
+    <!-- ============================================================ -->
+    <div class="section" id="archaeology">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-trowel"></i>
+            <span class="section-number">Section 05</span>
+        </div>
+        <h2 class="section-title">Archaeology</h2>
+        <p class="section-description">
+            Cultural heritage assessment including Stage 3 and Stage 4 archaeological work across three identified areas.
+        </p>
+
+        <h3>Stage 3 Assessment</h3>
+        <p>
+            The Stage 3 Archaeological Assessment has been <strong>submitted to the Ministry of Citizenship and Multiculturalism (MCM)</strong> and is currently under review pending concurrence. The assessment identified three archaeological areas requiring further investigation.
+        </p>
+
+        <h3>Stage 4 Assessment</h3>
+        <p>
+            Stage 4 field work has been <strong>completed across all three archaeological areas</strong>. The approach utilized a combination of:
+        </p>
+        <ul class="styled-list">
+            <li><strong>Avoidance and long-term protection</strong> for culturally significant features</li>
+            <li><strong>Mitigation excavation</strong> for areas that cannot be avoided by development</li>
+        </ul>
+        <p>
+            The Stage 4 report is currently in progress and will be submitted following Stage 3 MCM concurrence.
+        </p>
+
+        <div class="image-row">
+            <!-- PLACEHOLDER: Archaeological fieldwork photos -->
+            <div class="image-placeholder">
+                <i class="fa-solid fa-camera"></i>
+                <span>Fieldwork Photo 1</span>
+                <span class="image-desc">Stage 4 excavation area or archaeological findings</span>
+            </div>
+            <div class="image-placeholder">
+                <i class="fa-solid fa-camera"></i>
+                <span>Fieldwork Photo 2</span>
+                <span class="image-desc">Identified archaeological features or protection areas</span>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <div class="highlight-box-title">
+                <i class="fa-solid fa-shield-halved"></i> Heritage Protection
+            </div>
+            <p>
+                The archaeological program ensures full compliance with the Ontario Heritage Act and MCM standards. Long-term protection measures have been incorporated into the development plan for culturally significant areas.
+            </p>
+        </div>
+
+        <h4>Archaeological Process Flow</h4>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Stage</th>
+                    <th>Status</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Stage 1 &amp; 2</td>
+                    <td><span class="status-badge status-complete">Complete</span></td>
+                    <td>Background research and property assessment; identified areas of archaeological potential</td>
+                </tr>
+                <tr>
+                    <td>Stage 3</td>
+                    <td><span class="status-badge status-in-progress">Under MCM Review</span></td>
+                    <td>Submitted to MCM; awaiting concurrence on findings across three identified areas</td>
+                </tr>
+                <tr>
+                    <td>Stage 4</td>
+                    <td><span class="status-badge status-in-progress">Report In Progress</span></td>
+                    <td>Field work complete; report to be submitted following Stage 3 concurrence</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 6: ENVIRONMENTAL ASSESSMENT -->
+    <!-- ============================================================ -->
+    <div class="section" id="environmental">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-tree"></i>
+            <span class="section-number">Section 06</span>
+        </div>
+        <h2 class="section-title">Environmental Assessment</h2>
+        <p class="section-description">
+            Environmental Impact Statement and ecological field assessments for the property.
+        </p>
+
+        <div class="highlight-box">
+            <div class="highlight-box-title">
+                <i class="fa-solid fa-circle-check"></i> Status: Complete
+            </div>
+            <p>
+                All environmental field work and the Environmental Impact Statement are <strong>complete</strong>. Compliance with applicable environmental policies and regulations has been demonstrated.
+            </p>
+        </div>
+
+        <div class="two-col">
+            <div>
+                <h4>Scope of Work</h4>
+                <ul class="styled-list">
+                    <li>Environmental Impact Statement (EIS)</li>
+                    <li>Species-at-risk habitat screening</li>
+                    <li>Vegetation and ecological community mapping</li>
+                    <li>Natural heritage feature assessment</li>
+                    <li>Tree inventory and preservation plan</li>
+                </ul>
+            </div>
+            <div>
+                <!-- PLACEHOLDER: Environmental features map -->
+                <div class="image-placeholder" style="min-height: 240px;">
+                    <i class="fa-solid fa-leaf"></i>
+                    <span>Environmental Features Map</span>
+                    <span class="image-desc">Natural heritage features, vegetation communities, and buffers</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- PLACEHOLDER: Additional environmental images -->
+        <div class="image-row">
+            <div class="image-placeholder">
+                <i class="fa-solid fa-camera"></i>
+                <span>Site Ecology Photo 1</span>
+                <span class="image-desc">Vegetation community or natural heritage feature on site</span>
+            </div>
+            <div class="image-placeholder">
+                <i class="fa-solid fa-camera"></i>
+                <span>Site Ecology Photo 2</span>
+                <span class="image-desc">Tree inventory area or watercourse feature</span>
+            </div>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 7: HYDROGEOLOGY -->
+    <!-- ============================================================ -->
+    <div class="section" id="hydrogeology">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-water"></i>
+            <span class="section-number">Section 07</span>
+        </div>
+        <h2 class="section-title">Hydrogeology</h2>
+        <p class="section-description">
+            Groundwater assessment, well drilling program, and private servicing feasibility for the 5-lot development.
+        </p>
+
+        <h3>Phase 2 Drilling Program</h3>
+        <p>
+            Phase 2 hydrogeological drilling is <strong>scheduled to begin February 22, 2026</strong>. This phase involves drilling <strong>2 additional bedrock wells</strong> to complete the site's water servicing infrastructure.
+        </p>
+
+        <div class="highlight-box">
+            <div class="highlight-box-title">
+                <i class="fa-solid fa-flask"></i> Stepwise Drilling Program
+            </div>
+            <p>
+                The program is designed stepwise to manage risk and optimize results:<br><br>
+                <strong>Step 1:</strong> Drill one well and monitor immediately for 2 to 3 days.<br>
+                <strong>Step 2:</strong> Confirm results from the first well.<br>
+                <strong>Step 3:</strong> Complete the second well.
+            </p>
+        </div>
+
+        <h3>Upon Completion</h3>
+        <p>
+            When Phase 2 is complete, the site will have a comprehensive groundwater monitoring network:
+        </p>
+
+        <div class="metrics-row" style="grid-template-columns: 1fr 1fr;">
+            <div class="metric-card">
+                <i class="fa-solid fa-faucet-drip"></i>
+                <div class="metric-value">3</div>
+                <div class="metric-label">Full-Service Wells</div>
+            </div>
+            <div class="metric-card">
+                <i class="fa-solid fa-gauge-high"></i>
+                <div class="metric-value">4</div>
+                <div class="metric-label">Monitoring Wells</div>
+            </div>
+        </div>
+
+        <p>
+            All well data will be submitted for City of Hamilton review as part of the private servicing approval process.
+        </p>
+
+        <!-- PLACEHOLDER: Well location map -->
+        <div class="image-placeholder">
+            <i class="fa-solid fa-map-pin"></i>
+            <span>Well Location Map</span>
+            <span class="image-desc">Map showing existing and proposed well locations across the 5 lots</span>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 8: CIVIL ENGINEERING -->
+    <!-- ============================================================ -->
+    <div class="section" id="civil-engineering">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-helmet-safety"></i>
+            <span class="section-number">Section 08</span>
+        </div>
+        <h2 class="section-title">Civil Engineering</h2>
+        <p class="section-description">
+            Lot grading, servicing, stormwater management, and access design for the estate development.
+        </p>
+
+        <div class="highlight-box">
+            <div class="highlight-box-title">
+                <i class="fa-solid fa-clock"></i> Status: Pending Hydrogeology Results
+            </div>
+            <p>
+                Civil engineering design is contingent on the completion of Phase 2 hydrogeological drilling and results. Detailed design will proceed once groundwater servicing parameters are confirmed.
+            </p>
+        </div>
+
+        <h4>Anticipated Scope</h4>
+        <ul class="styled-list">
+            <li>Lot grading and drainage design for 5 estate lots</li>
+            <li>Private well and septic servicing layout</li>
+            <li>Stormwater management plan</li>
+            <li>Driveway access design (Highway 8 / MTO coordination)</li>
+            <li>Erosion and sediment control during construction</li>
+        </ul>
+
+        <!-- PLACEHOLDER: Preliminary grading or engineering drawings -->
+        <div class="image-placeholder">
+            <i class="fa-solid fa-drafting-compass"></i>
+            <span>Engineering Drawings</span>
+            <span class="image-desc">Preliminary lot grading, servicing plan, or stormwater management concept</span>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 9: REGULATORY COORDINATION -->
+    <!-- ============================================================ -->
+    <div class="section" id="regulatory">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-building-columns"></i>
+            <span class="section-number">Section 09</span>
+        </div>
+        <h2 class="section-title">Regulatory Coordination</h2>
+        <p class="section-description">
+            Multi-agency coordination to satisfy all regulatory requirements for the estate development.
+        </p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Agency</th>
+                    <th>Area of Jurisdiction</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>City of Hamilton</strong></td>
+                    <td>Planning approval, consent conditions, servicing review</td>
+                    <td><span class="status-badge status-in-progress">Under Review</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Ministry of Citizenship &amp; Multiculturalism (MCM)</strong></td>
+                    <td>Archaeological assessment review and concurrence</td>
+                    <td><span class="status-badge status-in-progress">Stage 3 Review</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Hamilton Conservation Authority (HCA)</strong></td>
+                    <td>Environmental compliance, natural hazards, watercourses</td>
+                    <td><span class="status-badge status-in-progress">In Coordination</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Ministry of Transportation (MTO)</strong></td>
+                    <td>Highway 8 access, entrance permits, sight-line requirements</td>
+                    <td><span class="status-badge status-pending">Pending</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 10: TIMELINE & MILESTONES -->
+    <!-- ============================================================ -->
+    <div class="section" id="timeline">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-calendar-days"></i>
+            <span class="section-number">Section 10</span>
+        </div>
+        <h2 class="section-title">Timeline &amp; Milestones</h2>
+        <p class="section-description">
+            Key project milestones from application submission through final approvals.
+        </p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot completed"></div>
+                <div class="timeline-date">December 23, 2025</div>
+                <div class="timeline-title">Application for Consent Submitted</div>
+                <div class="timeline-desc">5-lot estate residential severance application filed with City of Hamilton.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot completed"></div>
+                <div class="timeline-date">Completed</div>
+                <div class="timeline-title">Environmental Assessment Complete</div>
+                <div class="timeline-desc">EIS and all field assessments finalized; compliance demonstrated.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot completed"></div>
+                <div class="timeline-date">Completed</div>
+                <div class="timeline-title">Stage 3 Archaeological Assessment Submitted</div>
+                <div class="timeline-desc">Submitted to MCM for review and concurrence.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot completed"></div>
+                <div class="timeline-date">Completed</div>
+                <div class="timeline-title">Stage 4 Archaeological Field Work Complete</div>
+                <div class="timeline-desc">Field work completed across three areas using avoidance, protection, and mitigation.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot active"></div>
+                <div class="timeline-date">In Progress</div>
+                <div class="timeline-title">Stage 3 MCM Concurrence</div>
+                <div class="timeline-desc">Awaiting Ministry review and concurrence on Stage 3 findings.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot active"></div>
+                <div class="timeline-date">In Progress</div>
+                <div class="timeline-title">Stage 4 Report Preparation</div>
+                <div class="timeline-desc">Report in progress; to be submitted following Stage 3 concurrence.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">February 22, 2026</div>
+                <div class="timeline-title">Phase 2 Hydrogeological Drilling Begins</div>
+                <div class="timeline-desc">2 additional bedrock wells; stepwise program with monitoring.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">TBD</div>
+                <div class="timeline-title">Civil Engineering Design</div>
+                <div class="timeline-desc">Lot grading, servicing, stormwater management — pending hydro results.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">TBD</div>
+                <div class="timeline-title">Final Regulatory Approvals</div>
+                <div class="timeline-desc">All agency sign-offs and conditions clearance.</div>
+            </div>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 11: NEXT STEPS -->
+    <!-- ============================================================ -->
+    <div class="section" id="next-steps">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-list-check"></i>
+            <span class="section-number">Section 11</span>
+        </div>
+        <h2 class="section-title">Next Steps &amp; Action Items</h2>
+        <p class="section-description">
+            Immediate and near-term action items to advance the project through the approval process.
+        </p>
+
+        <div class="two-col">
+            <div>
+                <h4>Immediate (Next 30 Days)</h4>
+                <ul class="styled-list check-list">
+                    <li>Receive MCM concurrence on Stage 3 Archaeological Assessment</li>
+                    <li>Complete and submit Stage 4 Archaeological Report (following Stage 3 concurrence)</li>
+                    <li>Commence Phase 2 hydrogeological drilling on February 22, 2026</li>
+                    <li>Continue City of Hamilton planning review and respond to any comments</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Near-Term (60–120 Days)</h4>
+                <ul class="styled-list check-list">
+                    <li>Complete Phase 2 drilling, monitoring, and well testing program</li>
+                    <li>Submit hydrogeological results to City of Hamilton for review</li>
+                    <li>Initiate civil engineering detailed design</li>
+                    <li>Coordinate with MTO on Highway 8 entrance requirements</li>
+                    <li>Advance all regulatory agency approvals toward conditions clearance</li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 12: APPENDIX -->
+    <!-- ============================================================ -->
+    <div class="section" id="appendix">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-folder-open"></i>
+            <span class="section-number">Section 12</span>
+        </div>
+        <h2 class="section-title">Appendix — Full Reports &amp; Documents</h2>
+        <p class="section-description">
+            Links to complete consultant reports and supporting documents. All documents are stored on the shared project drive.
+        </p>
+
+        <h3><i class="fa-solid fa-home" style="color: var(--tan-accent); margin-right: 8px;"></i> Planning</h3>
+        <a href="#" class="link-card">
+            <div class="link-card-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="link-card-content">
+                <div class="link-card-title">Planning Justification Report</div>
+                <div class="link-card-desc">Full planning rationale and policy compliance analysis for the 5-lot estate severance application.</div>
+                <div class="link-card-placeholder">⚠ PLACEHOLDER — Add Google Drive / cloud link</div>
+            </div>
+            <i class="link-card-arrow fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a href="#" class="link-card">
+            <div class="link-card-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="link-card-content">
+                <div class="link-card-title">Application for Consent</div>
+                <div class="link-card-desc">Submitted application package including consent sketch, supporting studies summary, and fee receipts.</div>
+                <div class="link-card-placeholder">⚠ PLACEHOLDER — Add Google Drive / cloud link</div>
+            </div>
+            <i class="link-card-arrow fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+        <h3 style="margin-top: 36px;"><i class="fa-solid fa-trowel" style="color: var(--tan-accent); margin-right: 8px;"></i> Archaeology</h3>
+        <a href="#" class="link-card">
+            <div class="link-card-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="link-card-content">
+                <div class="link-card-title">Stage 1–2 Archaeological Assessment</div>
+                <div class="link-card-desc">Background research, property assessment, and identification of areas of archaeological potential.</div>
+                <div class="link-card-placeholder">⚠ PLACEHOLDER — Add Google Drive / cloud link</div>
+            </div>
+            <i class="link-card-arrow fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a href="#" class="link-card">
+            <div class="link-card-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="link-card-content">
+                <div class="link-card-title">Stage 3 Archaeological Assessment</div>
+                <div class="link-card-desc">Detailed assessment of three identified archaeological areas; submitted to MCM for concurrence.</div>
+                <div class="link-card-placeholder">⚠ PLACEHOLDER — Add Google Drive / cloud link</div>
+            </div>
+            <i class="link-card-arrow fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a href="#" class="link-card">
+            <div class="link-card-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="link-card-content">
+                <div class="link-card-title">Stage 4 Archaeological Assessment</div>
+                <div class="link-card-desc">Mitigation excavation and long-term protection plan across three archaeological areas. (Report in progress)</div>
+                <div class="link-card-placeholder">⚠ PLACEHOLDER — Report in progress; link to be added upon completion</div>
+            </div>
+            <i class="link-card-arrow fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+        <h3 style="margin-top: 36px;"><i class="fa-solid fa-tree" style="color: var(--tan-accent); margin-right: 8px;"></i> Environmental</h3>
+        <a href="#" class="link-card">
+            <div class="link-card-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="link-card-content">
+                <div class="link-card-title">Environmental Impact Statement (EIS)</div>
+                <div class="link-card-desc">Comprehensive environmental assessment including species-at-risk screening, vegetation mapping, and natural heritage features.</div>
+                <div class="link-card-placeholder">⚠ PLACEHOLDER — Add Google Drive / cloud link</div>
+            </div>
+            <i class="link-card-arrow fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+        <h3 style="margin-top: 36px;"><i class="fa-solid fa-water" style="color: var(--tan-accent); margin-right: 8px;"></i> Hydrogeology</h3>
+        <a href="#" class="link-card">
+            <div class="link-card-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="link-card-content">
+                <div class="link-card-title">Phase 1 Hydrogeological Assessment</div>
+                <div class="link-card-desc">Initial groundwater assessment, well installation, and baseline monitoring data.</div>
+                <div class="link-card-placeholder">⚠ PLACEHOLDER — Add Google Drive / cloud link</div>
+            </div>
+            <i class="link-card-arrow fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <a href="#" class="link-card">
+            <div class="link-card-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="link-card-content">
+                <div class="link-card-title">Phase 2 Hydrogeological Assessment</div>
+                <div class="link-card-desc">Additional bedrock well drilling, pump testing, and water quality analysis. (Drilling scheduled Feb 22, 2026)</div>
+                <div class="link-card-placeholder">⚠ PLACEHOLDER — Report pending; link to be added upon completion</div>
+            </div>
+            <i class="link-card-arrow fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+        <h3 style="margin-top: 36px;"><i class="fa-solid fa-helmet-safety" style="color: var(--tan-accent); margin-right: 8px;"></i> Civil Engineering</h3>
+        <a href="#" class="link-card">
+            <div class="link-card-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="link-card-content">
+                <div class="link-card-title">Civil Engineering Report &amp; Design Drawings</div>
+                <div class="link-card-desc">Lot grading, servicing, stormwater management, and access design package. (Pending hydrogeology results)</div>
+                <div class="link-card-placeholder">⚠ PLACEHOLDER — Report pending; link to be added upon completion</div>
+            </div>
+            <i class="link-card-arrow fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+        <h3 style="margin-top: 36px;"><i class="fa-solid fa-building-columns" style="color: var(--tan-accent); margin-right: 8px;"></i> Regulatory &amp; Correspondence</h3>
+        <a href="#" class="link-card">
+            <div class="link-card-icon"><i class="fa-solid fa-folder"></i></div>
+            <div class="link-card-content">
+                <div class="link-card-title">Agency Correspondence Folder</div>
+                <div class="link-card-desc">All correspondence with City of Hamilton, MCM, HCA, MTO, and other regulatory agencies.</div>
+                <div class="link-card-placeholder">⚠ PLACEHOLDER — Add Google Drive / cloud folder link</div>
+            </div>
+            <i class="link-card-arrow fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+        <a href="#toc" class="back-to-top" style="margin-top: 48px;"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================================ -->
+    <div class="report-footer">
+        <div class="report-footer-left">
+            <div class="report-footer-brand">Greensville Estates</div>
+            <div>Upper Paradise Developments Inc. &bull; 190 Highway 8, Hamilton, Ontario</div>
+        </div>
+        <div class="report-footer-right">
+            <div>Comprehensive Master Report</div>
+            <div>Compiled January 27, 2026</div>
+            <div style="margin-top: 6px; font-size: 0.7rem; opacity: 0.5;">CONFIDENTIAL — For Authorized Recipients Only</div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

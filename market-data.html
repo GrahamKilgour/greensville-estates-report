@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greensville Estates — Market &amp; Development Guide</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --green-primary: #2C3E2C;
+            --tan-accent: #8B7355;
+            --bg-cream: #f5f5f0;
+            --bg-light: #fcfcfc;
+            --bg-green-tint: rgba(44, 62, 44, 0.05);
+            --text-primary: #4a4a4a;
+            --text-dark: #2C3E2C;
+            --text-gray: #6b7280;
+            --border-light: #dcdcdc;
+            --border-accent: #2C3E2C;
+        }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            color: var(--text-primary);
+            background: #e8e8e3;
+            line-height: 1.6;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .site-nav {
+            background: var(--green-primary);
+            padding: 0 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+        .site-nav-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #fff;
+            text-decoration: none;
+            padding: 16px 0;
+        }
+        .site-nav-links { display: flex; gap: 0; }
+        .site-nav-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 18px 24px;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+        }
+        .site-nav-links a:hover { color: #fff; background: rgba(255,255,255,0.05); }
+        .site-nav-links a.active { color: var(--tan-accent); border-bottom-color: var(--tan-accent); }
+
+        /* ===== CONTAINER ===== */
+        .report-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--bg-cream);
+            box-shadow: 0 0 60px rgba(0,0,0,0.1);
+        }
+
+        /* ===== COVER / HEADER ===== */
+        .page-header {
+            background: linear-gradient(135deg, var(--green-primary) 0%, #1a2e1a 60%, #0f1f0f 100%);
+            color: #fff;
+            padding: 80px 60px 60px;
+            position: relative;
+        }
+        .page-header-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--tan-accent);
+            margin-bottom: 12px;
+        }
+        .page-header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+        .page-header-subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.7);
+            max-width: 680px;
+            line-height: 1.7;
+        }
+        .page-header-strip {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 6px;
+            background: var(--tan-accent);
+        }
+
+        /* ===== TABLE OF CONTENTS ===== */
+        .toc-section {
+            padding: 50px 60px 36px;
+            background: var(--bg-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+        .toc-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+        .toc-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 28px;
+        }
+        .toc-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 60px;
+        }
+        .toc-group { margin-bottom: 22px; }
+        .toc-group-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--tan-accent);
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .toc-item { margin-bottom: 6px; }
+        .toc-item a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 0.92rem;
+            transition: color 0.2s;
+            display: flex;
+            align-items: baseline;
+        }
+        .toc-item a:hover { color: var(--green-primary); }
+        .toc-number {
+            font-weight: 700;
+            color: var(--tan-accent);
+            min-width: 28px;
+            font-size: 0.82rem;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 60px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .section:last-of-type { border-bottom: none; }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 8px;
+        }
+        .section-icon {
+            color: var(--tan-accent);
+            font-size: 1.25rem;
+            width: 24px;
+            text-align: center;
+        }
+        .section-number {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--tan-accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+        .section-description {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin-bottom: 36px;
+            max-width: 750px;
+            line-height: 1.7;
+        }
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 36px 0 16px;
+        }
+        h3:first-of-type { margin-top: 0; }
+        h4 {
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 24px 0 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        p { margin-bottom: 16px; line-height: 1.7; font-size: 1rem; }
+
+        /* ===== HIGHLIGHT BOX ===== */
+        .highlight-box {
+            background: var(--bg-green-tint);
+            border-left: 4px solid var(--border-accent);
+            padding: 24px 28px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .highlight-box p { margin-bottom: 0; }
+        .highlight-box-title {
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .highlight-box-title i { color: var(--tan-accent); }
+
+        .highlight-box-urgent {
+            background: rgba(139, 115, 85, 0.08);
+            border-left: 4px solid var(--tan-accent);
+            padding: 24px 28px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .highlight-box-urgent p { margin-bottom: 0; }
+
+        .highlight-box-warning {
+            background: rgba(231, 76, 60, 0.04);
+            border-left: 4px solid #c0392b;
+            padding: 24px 28px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .highlight-box-warning p { margin-bottom: 0; }
+
+        /* ===== TABLES ===== */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            font-size: 0.92rem;
+        }
+        .data-table thead { background: var(--green-primary); color: #fff; }
+        .data-table th {
+            padding: 14px 18px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .data-table td {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border-light);
+            vertical-align: top;
+        }
+        .data-table tbody tr:hover { background: var(--bg-green-tint); }
+        .data-table tbody tr:nth-child(even) { background: rgba(0,0,0,0.015); }
+        .data-table tbody tr:nth-child(even):hover { background: var(--bg-green-tint); }
+
+        /* ===== METRICS ===== */
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .metric-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 24px 20px;
+            text-align: center;
+        }
+        .metric-card i { color: var(--tan-accent); font-size: 1.3rem; margin-bottom: 10px; }
+        .metric-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+        .metric-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-gray);
+        }
+        .metric-sublabel {
+            font-size: 0.72rem;
+            color: var(--text-gray);
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        /* ===== TWO COLUMN ===== */
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 24px 0; }
+
+        /* ===== STYLED LISTS ===== */
+        .styled-list { list-style: none; padding: 0; margin: 16px 0; }
+        .styled-list li {
+            padding: 8px 0 8px 32px;
+            position: relative;
+            line-height: 1.6;
+        }
+        .styled-list li::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 16px;
+            width: 8px;
+            height: 8px;
+            background: var(--tan-accent);
+            border-radius: 50%;
+        }
+        .styled-list.check-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            background: none;
+            color: var(--green-primary);
+            font-size: 0.8rem;
+            top: 10px;
+            left: 4px;
+            width: auto; height: auto;
+            border-radius: 0;
+        }
+        .styled-list.warning-list li::before {
+            content: '\f071';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            background: none;
+            color: #e67e22;
+            font-size: 0.75rem;
+            top: 11px;
+            left: 4px;
+            width: auto; height: auto;
+            border-radius: 0;
+        }
+
+        /* ===== STAT BARS (horizontal) ===== */
+        .stat-bar-group { margin: 24px 0; }
+        .stat-bar-item { margin-bottom: 14px; }
+        .stat-bar-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+            font-size: 0.88rem;
+        }
+        .stat-bar-label strong { color: var(--text-dark); }
+        .stat-bar-label span { color: var(--tan-accent); font-weight: 700; }
+        .stat-bar-track {
+            width: 100%;
+            height: 10px;
+            background: rgba(0,0,0,0.04);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .stat-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--green-primary), #4a6b4a);
+            border-radius: 10px;
+            transition: width 0.6s ease;
+        }
+
+        /* ===== FEATURE CARDS ===== */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            padding: 28px 22px;
+            transition: all 0.3s;
+        }
+        .feature-card:hover {
+            box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+            transform: translateY(-2px);
+        }
+        .feature-card-icon {
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: var(--bg-green-tint);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+        .feature-card-icon i { color: var(--green-primary); font-size: 1.1rem; }
+        .feature-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+        .feature-card-desc { font-size: 0.85rem; color: var(--text-gray); line-height: 1.6; }
+
+        /* ===== SAVINGS CALLOUT ===== */
+        .savings-callout {
+            background: var(--green-primary);
+            color: #fff;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            margin: 36px 0;
+        }
+        .savings-callout-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--tan-accent);
+            margin-bottom: 8px;
+        }
+        .savings-callout-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .savings-callout-desc {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 16px;
+        }
+        .savings-callout-deadline {
+            display: inline-block;
+            padding: 8px 24px;
+            border: 1px solid var(--tan-accent);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--tan-accent);
+        }
+
+        /* ===== BACK TO TOP ===== */
+        .back-to-top {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            color: var(--tan-accent);
+            text-decoration: none;
+            margin-top: 40px;
+            transition: color 0.2s;
+        }
+        .back-to-top:hover { color: var(--green-primary); }
+
+        /* ===== FOOTER ===== */
+        .report-footer {
+            background: var(--green-primary);
+            color: rgba(255,255,255,0.7);
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .report-footer-left { font-size: 0.85rem; }
+        .report-footer-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .report-footer-right { text-align: right; font-size: 0.8rem; }
+
+        /* ===== PRINT ===== */
+        @media print {
+            body { background: #fff; }
+            .report-container { box-shadow: none; }
+            .site-nav { display: none; }
+            .page-header { break-after: page; }
+            .back-to-top { display: none; }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .site-nav { padding: 0 20px; flex-direction: column; }
+            .site-nav-links a { padding: 12px 16px; font-size: 0.72rem; }
+            .page-header { padding: 50px 24px 40px; }
+            .page-header-title { font-size: 2rem; }
+            .toc-section { padding: 36px 24px; }
+            .toc-columns { grid-template-columns: 1fr; }
+            .section { padding: 40px 24px; }
+            .metrics-row { grid-template-columns: 1fr 1fr; }
+            .two-col { grid-template-columns: 1fr; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .report-footer { flex-direction: column; text-align: center; gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<div class="site-nav">
+    <a href="index.html" class="site-nav-brand">Greensville Estates</a>
+    <div class="site-nav-links">
+        <a href="index.html">Development Report</a>
+        <a href="marketing.html">Marketing</a>
+        <a href="market-data.html" class="active">Market Data</a>
+    </div>
+</div>
+
+<div class="report-container">
+
+    <!-- ============================================================ -->
+    <!-- PAGE HEADER -->
+    <!-- ============================================================ -->
+    <div class="page-header">
+        <div class="page-header-label">Greensville, Hamilton</div>
+        <h1 class="page-header-title">Complete Market &amp;<br>Development Guide</h1>
+        <p class="page-header-subtitle">
+            Comprehensive community data, market analysis, fiscal incentives, and development strategy for residential lots and custom home construction in Greensville.
+        </p>
+        <div class="page-header-strip"></div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TABLE OF CONTENTS -->
+    <!-- ============================================================ -->
+    <div class="toc-section" id="toc">
+        <h2 class="toc-title">Table of Contents</h2>
+        <p class="toc-subtitle">Click any section to navigate directly.</p>
+        <div class="toc-columns">
+            <div>
+                <div class="toc-group">
+                    <div class="toc-group-label">Community &amp; Demographics</div>
+                    <div class="toc-item"><a href="#community"><span class="toc-number">01</span> Community Profile &amp; Demographics</a></div>
+                    <div class="toc-item"><a href="#schools"><span class="toc-number">02</span> Schools &amp; Institutional Anchors</a></div>
+                    <div class="toc-item"><a href="#natural-assets"><span class="toc-number">03</span> Natural Assets &amp; Recreation</a></div>
+                    <div class="toc-item"><a href="#commute"><span class="toc-number">04</span> Commute &amp; Accessibility</a></div>
+                </div>
+                <div class="toc-group">
+                    <div class="toc-group-label">Financial &amp; Regulatory</div>
+                    <div class="toc-item"><a href="#incentives"><span class="toc-number">05</span> Municipal Incentives &amp; Development Charges</a></div>
+                    <div class="toc-item"><a href="#zoning"><span class="toc-number">06</span> Zoning &amp; Development Framework</a></div>
+                </div>
+            </div>
+            <div>
+                <div class="toc-group">
+                    <div class="toc-group-label">Market Strategy</div>
+                    <div class="toc-item"><a href="#target-buyers"><span class="toc-number">07</span> Target Buyer Profiles</a></div>
+                    <div class="toc-item"><a href="#competitive"><span class="toc-number">08</span> Competitive Advantages</a></div>
+                    <div class="toc-item"><a href="#market-position"><span class="toc-number">09</span> Market Positioning &amp; Comparables</a></div>
+                    <div class="toc-item"><a href="#campaign"><span class="toc-number">10</span> Marketing Campaign Framework</a></div>
+                </div>
+                <div class="toc-group">
+                    <div class="toc-group-label">Execution</div>
+                    <div class="toc-item"><a href="#strategy"><span class="toc-number">11</span> Development Strategy &amp; Recommendations</a></div>
+                    <div class="toc-item"><a href="#risks"><span class="toc-number">12</span> Risk Mitigation</a></div>
+                    <div class="toc-item"><a href="#verification"><span class="toc-number">13</span> Fact-Check &amp; Verification Status</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- KEY METRICS AT A GLANCE -->
+    <!-- ============================================================ -->
+    <div class="section">
+        <div class="metrics-row">
+            <div class="metric-card">
+                <i class="fa-solid fa-users"></i>
+                <div class="metric-value">581</div>
+                <div class="metric-label">Residents</div>
+                <div class="metric-sublabel">215 households</div>
+            </div>
+            <div class="metric-card">
+                <i class="fa-solid fa-dollar-sign"></i>
+                <div class="metric-value">34%</div>
+                <div class="metric-label">Earn $150K+</div>
+                <div class="metric-sublabel">18% exceed $200K</div>
+            </div>
+            <div class="metric-card">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <div class="metric-value">75%</div>
+                <div class="metric-label">Post-Secondary</div>
+                <div class="metric-sublabel">41% bachelor's or higher</div>
+            </div>
+            <div class="metric-card">
+                <i class="fa-solid fa-house"></i>
+                <div class="metric-value">96%+</div>
+                <div class="metric-label">Owner-Occupied</div>
+                <div class="metric-sublabel">100% single-detached</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 1: COMMUNITY PROFILE -->
+    <!-- ============================================================ -->
+    <div class="section" id="community">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-users"></i>
+            <span class="section-number">Section 01</span>
+        </div>
+        <h2 class="section-title">Community Profile &amp; Demographics</h2>
+        <p class="section-description">
+            Greensville represents a rare convergence of natural amenities, educational excellence, and high-income stability — 581 residents across 215 households in Hamilton's most distinctive rural enclave.
+        </p>
+
+        <div class="two-col">
+            <div>
+                <h3>Age Distribution</h3>
+                <p>The U-shaped age distribution indicates exceptional long-term community stability:</p>
+                <div class="stat-bar-group">
+                    <div class="stat-bar-item">
+                        <div class="stat-bar-label"><strong>50–59 years (Established Professionals)</strong> <span>22%</span></div>
+                        <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 88%;"></div></div>
+                    </div>
+                    <div class="stat-bar-item">
+                        <div class="stat-bar-label"><strong>65+ years (Aging in Place)</strong> <span>22%</span></div>
+                        <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 88%;"></div></div>
+                    </div>
+                    <div class="stat-bar-item">
+                        <div class="stat-bar-label"><strong>15–29 years (Young Professionals)</strong> <span>16%</span></div>
+                        <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 64%;"></div></div>
+                    </div>
+                </div>
+                <p style="font-size: 0.88rem; color: var(--text-gray);">Balanced multi-generational presence creates a "vibrant during day, peaceful at night" neighborhood dynamic.</p>
+            </div>
+            <div>
+                <h3>Household Composition</h3>
+                <div class="stat-bar-group">
+                    <div class="stat-bar-item">
+                        <div class="stat-bar-label"><strong>Families with Children</strong> <span>40%</span></div>
+                        <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="stat-bar-item">
+                        <div class="stat-bar-label"><strong>Couples without Children</strong> <span>40%</span></div>
+                        <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 80%;"></div></div>
+                    </div>
+                    <div class="stat-bar-item">
+                        <div class="stat-bar-label"><strong>One-person Households</strong> <span>12%</span></div>
+                        <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 24%;"></div></div>
+                    </div>
+                    <div class="stat-bar-item">
+                        <div class="stat-bar-label"><strong>Other</strong> <span>8%</span></div>
+                        <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 16%;"></div></div>
+                    </div>
+                </div>
+
+                <h3>Ethnic Diversity</h3>
+                <p><strong>29 different ethnic origins</strong> represented. Primary heritage: English (30%), Scottish (25%), Canadian (24%), Irish (24%), Italian (9%). 16% first-generation immigrants; 35% second-generation — demonstrating mature, stable cultural integration.</p>
+            </div>
+        </div>
+
+        <h3>Income &amp; Education</h3>
+        <div class="highlight-box">
+            <div class="highlight-box-title"><i class="fa-solid fa-chart-line"></i> Key Marketing Drivers</div>
+            <p>
+                <strong>34%</strong> of households earn over $150,000 annually. <strong>18%</strong> exceed $200,000. <strong>75%</strong> have post-secondary education. <strong>41%</strong> hold a bachelor's degree or higher. <strong>1% unemployment rate</strong> — an exceptional stability indicator.
+            </p>
+        </div>
+
+        <h3>Occupational Profile</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Sector</th>
+                    <th>Share</th>
+                    <th>Marketing Relevance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Sales &amp; Service</strong></td>
+                    <td>23%</td>
+                    <td>Most common occupation; business-minded professionals</td>
+                </tr>
+                <tr>
+                    <td><strong>Health Care &amp; Social Assistance</strong></td>
+                    <td>18%</td>
+                    <td>Doctors, specialists, hospital administrators — short commute to Hamilton hospitals</td>
+                </tr>
+                <tr>
+                    <td><strong>Professional, Scientific &amp; Technical</strong></td>
+                    <td>10%</td>
+                    <td>Engineers, consultants, tech professionals — values home office infrastructure</td>
+                </tr>
+                <tr>
+                    <td><strong>Education &amp; Social Services</strong></td>
+                    <td>Significant</td>
+                    <td>Values educational excellence for their own children</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Residential Housing Stock</h3>
+        <div class="two-col">
+            <div>
+                <h4>Construction Era</h4>
+                <div class="stat-bar-group">
+                    <div class="stat-bar-item">
+                        <div class="stat-bar-label"><strong>Pre-1960 (Heritage Estates)</strong> <span>54%</span></div>
+                        <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 100%;"></div></div>
+                    </div>
+                    <div class="stat-bar-item">
+                        <div class="stat-bar-label"><strong>1961–1980</strong> <span>30%</span></div>
+                        <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 56%;"></div></div>
+                    </div>
+                    <div class="stat-bar-item">
+                        <div class="stat-bar-label"><strong>Post-1991</strong> <span>19%</span></div>
+                        <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 35%;"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h4>Key Housing Facts</h4>
+                <ul class="styled-list">
+                    <li><strong>95%</strong> single-detached homes (no condos)</li>
+                    <li><strong>85%</strong> have 3+ bedrooms; <strong>37%</strong> have 4+ bedrooms</li>
+                    <li><strong>96–100%</strong> owner-occupied (near-universal)</li>
+                    <li>Aging housing stock on spacious lots = prime redevelopment opportunity</li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 2: SCHOOLS -->
+    <!-- ============================================================ -->
+    <div class="section" id="schools">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-graduation-cap"></i>
+            <span class="section-number">Section 02</span>
+        </div>
+        <h2 class="section-title">Schools &amp; Institutional Anchors</h2>
+        <p class="section-description">
+            "Educational excellence from Montessori through AP — 40% of households with children have unparalleled choice in learning environments."
+        </p>
+
+        <div class="two-col">
+            <div>
+                <h3>Public Education</h3>
+                <ul class="styled-list">
+                    <li><strong>Greensville PS</strong> (PK–8)</li>
+                    <li><strong>Dundas Valley SS</strong> (9–12) — Advanced Placement programs</li>
+                    <li><strong>&Eacute;S Georges-P-Vanier</strong> &amp; <strong>&Eacute;&Eacute; Pavillon de la jeunesse</strong> (French immersion)</li>
+                </ul>
+
+                <h3>Catholic Education</h3>
+                <ul class="styled-list">
+                    <li><strong>St. Augustine Catholic ES</strong> (PK–8)</li>
+                    <li><strong>St. Mary Catholic SS</strong> (9–12)</li>
+                    <li><strong>&Eacute;SAC M&egrave;re-Teresa</strong> &amp; <strong>&Eacute;&Eacute;C Notre-Dame</strong> (bilingual)</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Private &amp; Specialized</h3>
+                <ul class="styled-list">
+                    <li><strong>Dundas Valley Montessori School</strong></li>
+                    <li><strong>Strata Montessori</strong></li>
+                    <li><strong>Hamilton Academy of Performing Arts</strong> (specialized arts)</li>
+                    <li><strong>Providence Christian School</strong></li>
+                    <li><strong>Glenwood Special Day School</strong> (specialized education support)</li>
+                </ul>
+
+                <div class="highlight-box" style="margin-top: 24px;">
+                    <div class="highlight-box-title"><i class="fa-solid fa-stethoscope"></i> Health Care Proximity</div>
+                    <p>18% of residents work in health care — commute times to Hamilton's major hospital systems are under 15 minutes. This demographic values educational excellence, estate-scale privacy, and modern home office infrastructure.</p>
+                </div>
+            </div>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 3: NATURAL ASSETS -->
+    <!-- ============================================================ -->
+    <div class="section" id="natural-assets">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-water"></i>
+            <span class="section-number">Section 03</span>
+        </div>
+        <h2 class="section-title">Natural Assets &amp; Recreation</h2>
+        <p class="section-description">
+            "Within walking distance: the tallest and most iconic waterfalls in Ontario. UNESCO biosphere reserve features that cannot be replicated."
+        </p>
+
+        <div class="two-col">
+            <div>
+                <h3><i class="fa-solid fa-water" style="color: var(--tan-accent); margin-right: 6px;"></i> Webster's Falls</h3>
+                <table class="data-table">
+                    <tbody>
+                        <tr><td><strong>Height</strong></td><td>22 metres (72 feet)</td></tr>
+                        <tr><td><strong>Type</strong></td><td>Classical curtain waterfall</td></tr>
+                        <tr><td><strong>Location</strong></td><td>Spencer Gorge/Webster's Falls Conservation Area</td></tr>
+                        <tr><td><strong>Access</strong></td><td>600m walk from parking</td></tr>
+                        <tr><td><strong>Features</strong></td><td>Historic cobblestone bridge, English country-style grounds</td></tr>
+                        <tr><td><strong>History</strong></td><td>Originally "Dr. Hamilton's Falls" (1818); historic mills, hydro-electric (1898)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h3><i class="fa-solid fa-water" style="color: var(--tan-accent); margin-right: 6px;"></i> Tew's Falls</h3>
+                <table class="data-table">
+                    <tbody>
+                        <tr><td><strong>Height</strong></td><td>41 metres (134 feet) — tallest in Hamilton</td></tr>
+                        <tr><td><strong>Type</strong></td><td>Ribbon waterfall</td></tr>
+                        <tr><td><strong>Best Season</strong></td><td>Spring &amp; post-winter snowmelt</td></tr>
+                        <tr><td><strong>History</strong></td><td>Once comparable to Niagara Falls' Horseshoe section</td></tr>
+                        <tr><td><strong>Geology</strong></td><td>Exposed bedrock — shale, sandstone, limestone</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h3>Trail System &amp; Recreation</h3>
+        <div class="two-col">
+            <div>
+                <h4>Connected Trail Network</h4>
+                <ul class="styled-list">
+                    <li>4 major trails weaving through the community</li>
+                    <li>Part of the <strong>Bruce Trail System</strong> (800+ km across UNESCO Biosphere Reserve)</li>
+                    <li>Green transportation network connecting to natural landscape</li>
+                    <li>Walking, cycling, hiking, and nature study</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Parks &amp; Facilities</h4>
+                <p><strong>5 local parks</strong> with <strong>15 recreational facilities</strong>:</p>
+                <div class="metrics-row" style="grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 16px 0;">
+                    <div class="metric-card" style="padding: 16px 12px;">
+                        <div class="metric-value" style="font-size: 1.4rem;">3</div>
+                        <div class="metric-label" style="font-size: 0.65rem;">Playgrounds</div>
+                    </div>
+                    <div class="metric-card" style="padding: 16px 12px;">
+                        <div class="metric-value" style="font-size: 1.4rem;">3</div>
+                        <div class="metric-label" style="font-size: 0.65rem;">Ball Diamonds</div>
+                    </div>
+                    <div class="metric-card" style="padding: 16px 12px;">
+                        <div class="metric-value" style="font-size: 1.4rem;">3</div>
+                        <div class="metric-label" style="font-size: 0.65rem;">Tennis Courts</div>
+                    </div>
+                </div>
+                <p style="font-size: 0.88rem; color: var(--text-gray);">Plus basketball court, sports court, and 4 major trails for passive recreation.</p>
+            </div>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 4: COMMUTE -->
+    <!-- ============================================================ -->
+    <div class="section" id="commute">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-car"></i>
+            <span class="section-number">Section 04</span>
+        </div>
+        <h2 class="section-title">Commute &amp; Accessibility</h2>
+        <p class="section-description">
+            "A 15-minute commute to Hamilton's health care and professional services hubs. A rural retreat never more than 30 minutes from major employment centres."
+        </p>
+
+        <div class="two-col">
+            <div>
+                <h3>Where Residents Work</h3>
+                <div class="stat-bar-group">
+                    <div class="stat-bar-item">
+                        <div class="stat-bar-label"><strong>Within Hamilton City</strong> <span>71%</span></div>
+                        <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 71%;"></div></div>
+                    </div>
+                    <div class="stat-bar-item">
+                        <div class="stat-bar-label"><strong>Other Cities (GTA/Regional)</strong> <span>28%</span></div>
+                        <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 28%;"></div></div>
+                    </div>
+                </div>
+
+                <h4>Commute Mode</h4>
+                <div class="stat-bar-group">
+                    <div class="stat-bar-item">
+                        <div class="stat-bar-label"><strong>Vehicle</strong> <span>86%</span></div>
+                        <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 86%;"></div></div>
+                    </div>
+                    <div class="stat-bar-item">
+                        <div class="stat-bar-label"><strong>Active (Walk/Bike)</strong> <span>6%</span></div>
+                        <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 6%;"></div></div>
+                    </div>
+                    <div class="stat-bar-item">
+                        <div class="stat-bar-label"><strong>Transit</strong> <span>4%</span></div>
+                        <div class="stat-bar-track"><div class="stat-bar-fill" style="width: 4%;"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3>Commute Times</h3>
+                <div class="metrics-row" style="grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0;">
+                    <div class="metric-card">
+                        <div class="metric-value" style="font-size: 1.8rem;">32%</div>
+                        <div class="metric-label">Under 15 Min</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" style="font-size: 1.8rem;">88%</div>
+                        <div class="metric-label">Under 45 Min</div>
+                    </div>
+                </div>
+                <ul class="styled-list">
+                    <li><strong>9 transit stops</strong> serving the area despite rural character</li>
+                    <li>Rural feel with urban connectivity</li>
+                    <li>Semi-rural setting maintains quiet character while preserving regional access</li>
+                </ul>
+            </div>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 5: INCENTIVES -->
+    <!-- ============================================================ -->
+    <div class="section" id="incentives">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-piggy-bank"></i>
+            <span class="section-number">Section 05</span>
+        </div>
+        <h2 class="section-title">Municipal Incentives &amp; Development Charges</h2>
+        <p class="section-description">
+            Active fiscal incentives creating a time-sensitive development window. Critical deadline: August 31, 2027.
+        </p>
+
+        <div class="savings-callout">
+            <div class="savings-callout-label">Per-Lot Development Charge Savings</div>
+            <div class="savings-callout-value">$19,702</div>
+            <div class="savings-callout-desc">20% reduction on standard rate of $98,511 per single-detached unit — discounted to $78,809</div>
+            <div class="savings-callout-deadline"><i class="fa-solid fa-clock" style="margin-right: 6px;"></i> Expires August 31, 2027</div>
+        </div>
+
+        <h3>Development Charge Reduction Program</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Detail</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Program Duration</strong></td><td>September 1, 2025 – August 31, 2027</td></tr>
+                <tr><td><strong>Reduction</strong></td><td>20% across all residential development</td></tr>
+                <tr><td><strong>Standard Rate</strong></td><td>$98,511 per single-detached unit</td></tr>
+                <tr><td><strong>Discounted Rate</strong></td><td>$78,809 per single-detached unit</td></tr>
+                <tr><td><strong>Savings Per Lot</strong></td><td><strong>$19,702</strong></td></tr>
+                <tr><td><strong>Rationale</strong></td><td>Hamilton Council pilot to stimulate housing supply; expected $9.6M annual cost to city</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Energy Efficiency Rebates</h3>
+        <p>Provincial Home Renovation Savings Program — available for new construction:</p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-card-icon"><i class="fa-solid fa-temperature-arrow-down"></i></div>
+                <div class="feature-card-title">Geothermal</div>
+                <div class="feature-card-desc"><strong>$2,000 – $12,000</strong> rebate. Ideal for estate lots with space for ground loops. Suited to private well/septic properties.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon"><i class="fa-solid fa-wind"></i></div>
+                <div class="feature-card-title">Heat Pump</div>
+                <div class="feature-card-desc"><strong>$500 – $7,500</strong> rebate. Cold climate air-source heat pumps — efficient year-round heating and cooling.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon"><i class="fa-solid fa-solar-panel"></i></div>
+                <div class="feature-card-title">Solar PV</div>
+                <div class="feature-card-desc"><strong>$1,000 per kW</strong> (typical $3,000–$5,000 total). Excellent ROI for luxury builds with energy strategies.</div>
+            </div>
+        </div>
+
+        <h3>Secondary Dwelling Units (SDUs)</h3>
+        <div class="highlight-box">
+            <div class="highlight-box-title"><i class="fa-solid fa-house-chimney-user"></i> SDU Opportunity</div>
+            <p>
+                Up to <strong>2 SDUs permitted</strong> per single-detached lot (By-law 05-200). <strong>100% Development Charge exemption</strong> for SDUs. Potential Housing Accelerator Fund support: permit fee rebate up to $2,000/unit; forgivable loan up to $25,000/unit (if rented at/below AMR for 15 years).
+            </p>
+        </div>
+
+        <div class="highlight-box-warning">
+            <div class="highlight-box-title" style="color: #c0392b;"><i class="fa-solid fa-triangle-exclamation" style="color: #e67e22;"></i> Verification Required</div>
+            <p>SDU eligibility in Greensville's rural boundaries (HHCIPA) requires verification with the City prior to marketing claims.</p>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 6: ZONING -->
+    <!-- ============================================================ -->
+    <div class="section" id="zoning">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-building"></i>
+            <span class="section-number">Section 06</span>
+        </div>
+        <h2 class="section-title">Zoning &amp; Development Framework</h2>
+        <p class="section-description">
+            Flamborough By-law 90-145-Z governs development in Greensville with a clear, transparent fee structure.
+        </p>
+
+        <div class="two-col">
+            <div>
+                <h3>Permitted Uses</h3>
+                <ul class="styled-list check-list">
+                    <li>Single-detached dwellings as primary structure</li>
+                    <li>Up to 2 Secondary Dwelling Units per lot</li>
+                    <li>Private servicing (septic, well) on appropriate-sized parcels</li>
+                    <li>No condominium conversion permitted (maintains estate character)</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Permit Fee Structure</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr><th>Permit Type</th><th>Fee</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Septic System</td><td><strong>$1,010</strong></td></tr>
+                        <tr><td>Geothermal System</td><td><strong>$523</strong></td></tr>
+                        <tr><td>Solar Collector</td><td><strong>$291</strong></td></tr>
+                        <tr><td colspan="2" style="font-size: 0.85rem; color: var(--text-gray); font-style: italic;">Total environmental/energy permits: under $1,825 per project</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 7: TARGET BUYERS -->
+    <!-- ============================================================ -->
+    <div class="section" id="target-buyers">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-bullseye"></i>
+            <span class="section-number">Section 07</span>
+        </div>
+        <h2 class="section-title">Target Buyer Profiles</h2>
+        <p class="section-description">
+            Three distinct buyer segments aligned with Greensville's unique demographic and lifestyle positioning.
+        </p>
+
+        <div class="feature-grid">
+            <div class="feature-card" style="border-top: 4px solid var(--green-primary);">
+                <div class="feature-card-title" style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-family: 'Lato', sans-serif; color: var(--tan-accent); margin-bottom: 4px;">Primary</div>
+                <div class="feature-card-title">High-Net-Worth Professionals</div>
+                <div class="feature-card-desc">
+                    <strong>Income:</strong> $150K–$200K+ household<br>
+                    <strong>Occupation:</strong> Health care, technical services, executives<br>
+                    <strong>Education:</strong> Bachelor's degree+<br>
+                    <strong>Family:</strong> Established families or empty-nesters<br>
+                    <strong>Values:</strong> Privacy, nature, education, stability<br>
+                    <strong>Home:</strong> 4+ bed, 2,500–3,500+ sq ft, sustainable
+                </div>
+            </div>
+            <div class="feature-card" style="border-top: 4px solid var(--tan-accent);">
+                <div class="feature-card-title" style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-family: 'Lato', sans-serif; color: var(--tan-accent); margin-bottom: 4px;">Secondary</div>
+                <div class="feature-card-title">Young Professionals</div>
+                <div class="feature-card-desc">
+                    <strong>Age:</strong> 15–29 (16% of population)<br>
+                    <strong>Trend:</strong> "Stay-at-home" preference for hometown<br>
+                    <strong>Appeal:</strong> Multi-generational living, trail access, outdoor recreation, professional community mentorship<br>
+                    <strong>Path:</strong> Future family formation
+                </div>
+            </div>
+            <div class="feature-card" style="border-top: 4px solid var(--border-light);">
+                <div class="feature-card-title" style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-family: 'Lato', sans-serif; color: var(--tan-accent); margin-bottom: 4px;">Tertiary</div>
+                <div class="feature-card-title">Aging-in-Place Retirees</div>
+                <div class="feature-card-desc">
+                    <strong>Age:</strong> 65+ (22% of population)<br>
+                    <strong>Interest:</strong> Secondary Dwelling Unit opportunities<br>
+                    <strong>Values:</strong> Health care proximity, trail accessibility, community stability, gentle recreation<br>
+                    <strong>Opportunity:</strong> SDU / garden suite for family
+                </div>
+            </div>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 8: COMPETITIVE ADVANTAGES -->
+    <!-- ============================================================ -->
+    <div class="section" id="competitive">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-trophy"></i>
+            <span class="section-number">Section 08</span>
+        </div>
+        <h2 class="section-title">Competitive Advantages</h2>
+        <p class="section-description">
+            Six key differentiators that position Greensville Estates above competing developments in the Hamilton market.
+        </p>
+
+        <div class="feature-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="feature-card">
+                <div class="feature-card-icon"><i class="fa-solid fa-lock"></i></div>
+                <div class="feature-card-title">Permanent Scarcity</div>
+                <div class="feature-card-desc">Conservation Authority boundaries limit expansion. UNESCO Biosphere Reserve protections. 95% single-detached (no condos). Natural supply floor = appreciation driver.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="feature-card-title">Educational Excellence</div>
+                <div class="feature-card-desc">AP programs at Dundas Valley SS. 3 Montessori options (rare in region). Specialized arts training. 75% post-secondary educated community.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon"><i class="fa-solid fa-mountain-sun"></i></div>
+                <div class="feature-card-title">Irreplaceable Natural Assets</div>
+                <div class="feature-card-desc">UNESCO Biosphere Reserve gateway. 22m and 41m waterfalls within walking distance. 4 connected trail systems. Bruce Trail access. Dundas Peak.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon"><i class="fa-solid fa-briefcase"></i></div>
+                <div class="feature-card-title">Professional Community</div>
+                <div class="feature-card-desc">18% health care professionals. 10% technical/professional services. 1% unemployment. 34% earning $150K+. Substance over sprawl.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon"><i class="fa-solid fa-piggy-bank"></i></div>
+                <div class="feature-card-title">Fiscal Incentive Window</div>
+                <div class="feature-card-desc">$19,702 per-lot DC savings (expires Aug 31, 2027). Energy rebates up to $12,000 (geothermal). SDU full DC exemption. Time-sensitive.</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-card-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                <div class="feature-card-title">Accessibility Balance</div>
+                <div class="feature-card-desc">Rural feel with urban connectivity. 15-min commute to Hamilton hubs. 9 transit stops despite rural character. Peace of country, convenience of city.</div>
+            </div>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 9: MARKET POSITIONING -->
+    <!-- ============================================================ -->
+    <div class="section" id="market-position">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-chart-line"></i>
+            <span class="section-number">Section 09</span>
+        </div>
+        <h2 class="section-title">Market Positioning &amp; Comparables</h2>
+        <p class="section-description">
+            Hamilton area market context and Greensville's positioning within the 2026 residential landscape.
+        </p>
+
+        <h3>Hamilton Market Context (2026)</h3>
+        <table class="data-table">
+            <thead>
+                <tr><th>Indicator</th><th>Value</th><th>Implication</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Price Growth (Projected)</strong></td><td>+2%</td><td>Steady appreciation; not overheated</td></tr>
+                <tr><td><strong>Sales Volume (Projected)</strong></td><td>+3%</td><td>Increasing buyer activity</td></tr>
+                <tr><td><strong>Listings Inventory</strong></td><td>+7.1% (12,212 in 2025)</td><td>More choice for buyers</td></tr>
+                <tr><td><strong>Sales-to-Listing Ratio</strong></td><td>39.4% (2025)</td><td>Transitioning toward buyer-favourable</td></tr>
+                <tr><td><strong>First-Time Buyers</strong></td><td>$780K–$920K</td><td>Active in mid-market segment</td></tr>
+                <tr><td><strong>Move-Up Buyers</strong></td><td>$1.3M–$1.6M</td><td>Primary target for Greensville custom builds</td></tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box">
+            <div class="highlight-box-title"><i class="fa-solid fa-arrow-trend-up"></i> Greensville Premium Positioning</div>
+            <p>
+                High-income demographic ($200K+ baseline) combined with estate lot scarcity, conservation area limits on competition, waterfall lifestyle premium, and professional demographic stability supports <strong>predicted 3–5% growth potential</strong> — above regional average due to "catch-up" potential.
+            </p>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 10: CAMPAIGN FRAMEWORK -->
+    <!-- ============================================================ -->
+    <div class="section" id="campaign">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-bullhorn"></i>
+            <span class="section-number">Section 10</span>
+        </div>
+        <h2 class="section-title">Marketing Campaign Framework</h2>
+        <p class="section-description">
+            Campaign theme, target channels, content pillars, and messaging hierarchy for the Greensville Estates launch.
+        </p>
+
+        <div class="highlight-box-urgent">
+            <div class="highlight-box-title"><i class="fa-solid fa-quote-left"></i> Campaign Theme</div>
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: var(--text-dark);">"Where Heritage Meets Modern Luxury"</p>
+        </div>
+
+        <h3>Taglines</h3>
+        <ul class="styled-list">
+            <li><em>"A 15-minute commute to success. A lifetime in nature."</em></li>
+            <li><em>"Waterfall views. Boutique schools. Your own estate. Welcome to Greensville."</em></li>
+            <li><em>"Where 581 accomplished professionals chose substance over sprawl."</em></li>
+            <li><em>"Multi-generational stability. Educational excellence. Natural wonder."</em></li>
+        </ul>
+
+        <h3>Target Advertising Channels</h3>
+        <div class="two-col">
+            <div>
+                <h4>Professional &amp; Industry</h4>
+                <ul class="styled-list">
+                    <li>LinkedIn targeted campaigns</li>
+                    <li>Chamber of Commerce networks</li>
+                    <li>Health care industry publications</li>
+                    <li>Professional conferences</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Real Estate &amp; Lifestyle</h4>
+                <ul class="styled-list">
+                    <li>Luxury platforms (RE/MAX Luxury, Sotheby's International)</li>
+                    <li>Architecture &amp; Design, Luxury Home, Heritage Magazine</li>
+                    <li>Geo-targeted digital ads ($150K+ HHI in Hamilton/GTA)</li>
+                    <li>Custom home expos, education fairs</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Social Media Content Pillars</h3>
+        <table class="data-table">
+            <thead>
+                <tr><th>Pillar</th><th>Content Focus</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Educational Excellence</strong></td><td>School programs, AP highlights, Montessori options, student achievements</td></tr>
+                <tr><td><strong>Nature &amp; Recreation</strong></td><td>Waterfall hiking, trail walks, seasonal photos (autumn foliage), Bruce Trail</td></tr>
+                <tr><td><strong>Community Lifestyle</strong></td><td>Professional profiles, family stories, multi-generational living</td></tr>
+                <tr><td><strong>Development Opportunity</strong></td><td>Lot showcases, design inspiration, sustainability features, construction updates</td></tr>
+                <tr><td><strong>Market Advantage</strong></td><td>DC incentive countdown to Aug 31, 2027 — urgency messaging</td></tr>
+            </tbody>
+        </table>
+
+        <h3>Messaging Priority Order</h3>
+        <ol style="padding-left: 20px; margin: 16px 0;">
+            <li style="padding: 6px 0; line-height: 1.6;"><strong>"Municipal incentive expires August 31, 2027"</strong> — urgency</li>
+            <li style="padding: 6px 0; line-height: 1.6;"><strong>"Waterfall community"</strong> — natural assets</li>
+            <li style="padding: 6px 0; line-height: 1.6;"><strong>"Educational excellence"</strong> — family driver</li>
+            <li style="padding: 6px 0; line-height: 1.6;"><strong>"Professional community"</strong> — income driver</li>
+            <li style="padding: 6px 0; line-height: 1.6;"><strong>"Estate privacy, urban access"</strong> — lifestyle balance</li>
+        </ol>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 11: STRATEGY -->
+    <!-- ============================================================ -->
+    <div class="section" id="strategy">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-chess"></i>
+            <span class="section-number">Section 11</span>
+        </div>
+        <h2 class="section-title">Development Strategy &amp; Recommendations</h2>
+        <p class="section-description">
+            Immediate actions and design benchmarks to capitalize on the DC incentive window before August 31, 2027.
+        </p>
+
+        <div class="highlight-box-urgent">
+            <div class="highlight-box-title"><i class="fa-solid fa-clock"></i> 19-Month Window</div>
+            <p>Each month of delay = lost savings opportunity. File permits before August 31, 2027 to lock in $19,702 per-unit savings before standard rates (~$98,000) reinstate.</p>
+        </div>
+
+        <div class="two-col">
+            <div>
+                <h3>Design Benchmarks</h3>
+                <ul class="styled-list check-list">
+                    <li><strong>4+ bedrooms</strong> minimum (align with 37% current standard)</li>
+                    <li><strong>2,500–3,500+ sq ft</strong> (estate lot justification)</li>
+                    <li><strong>2–3 full bathrooms</strong> (upscale standard)</li>
+                    <li>Open-concept, high ceilings (address pre-1960 limitations)</li>
+                    <li>Smart home automation &amp; EV charging</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Sustainable Systems</h3>
+                <ul class="styled-list check-list">
+                    <li><strong>Geothermal heating</strong> ($2K–$12K rebate)</li>
+                    <li><strong>Air-source heat pumps</strong> ($500–$7.5K rebate)</li>
+                    <li><strong>Solar PV</strong> ($1K/kW; ~$3K–$5K total)</li>
+                    <li>Net-zero capability positioning</li>
+                    <li>Premium finishes, minimal operational costs</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>SDU Opportunity</h3>
+        <p>For estate lots with 1+ acre — build primary residence (4+ bedrooms) and add garden suite or laneway house (SDU, 100% DC exempt). Market as:</p>
+        <div class="feature-grid">
+            <div class="feature-card" style="text-align: center;">
+                <div class="feature-card-icon" style="margin: 0 auto 14px;"><i class="fa-solid fa-people-roof"></i></div>
+                <div class="feature-card-title">Multi-Generational</div>
+                <div class="feature-card-desc">Aging parent suite for the 22% senior population</div>
+            </div>
+            <div class="feature-card" style="text-align: center;">
+                <div class="feature-card-icon" style="margin: 0 auto 14px;"><i class="fa-solid fa-laptop-house"></i></div>
+                <div class="feature-card-title">Professional Studio</div>
+                <div class="feature-card-desc">Home office or creative workspace separate from main home</div>
+            </div>
+            <div class="feature-card" style="text-align: center;">
+                <div class="feature-card-icon" style="margin: 0 auto 14px;"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+                <div class="feature-card-title">Income Suite</div>
+                <div class="feature-card-desc">Up to $25K forgivable loan if rented at/below AMR for 15 years</div>
+            </div>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 12: RISKS -->
+    <!-- ============================================================ -->
+    <div class="section" id="risks">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-shield-halved"></i>
+            <span class="section-number">Section 12</span>
+        </div>
+        <h2 class="section-title">Risk Mitigation</h2>
+        <p class="section-description">
+            Market and regulatory risks with corresponding mitigation strategies.
+        </p>
+
+        <h3>Market Risks</h3>
+        <table class="data-table">
+            <thead>
+                <tr><th>Risk</th><th>Detail</th><th>Mitigation</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Inventory Expansion</strong></td>
+                    <td>Hamilton listings +7.1% in 2025; market moving toward buyer-favourable</td>
+                    <td>Emphasize Greensville's permanent scarcity (conservation boundaries, single-detached mandate)</td>
+                </tr>
+                <tr>
+                    <td><strong>Rate Uncertainty</strong></td>
+                    <td>Buyer confidence tied to rate outlook; economic slowdown could dampen luxury demand</td>
+                    <td>Target established professionals with income stability (health care, technical sectors)</td>
+                </tr>
+                <tr>
+                    <td><strong>Affordability</strong></td>
+                    <td>First-time buyers at $780K–$920K; Greensville builds likely $1.2M+</td>
+                    <td>Market to move-up buyers ($1.3M–$1.6M) with proven high income; emphasize lifestyle equity</td>
+                </tr>
+                <tr>
+                    <td><strong>Timeline Pressure</strong></td>
+                    <td>Aug 31, 2027 DC deadline; multi-year custom builds may miss window</td>
+                    <td>Begin acquisition and design immediately; prioritize permit filing over construction completion</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Regulatory &amp; Zoning Risks</h3>
+        <ul class="styled-list warning-list">
+            <li><strong>Septic/Well Systems:</strong> Private servicing requirements mean larger lot minimums; verify soil conditions and water table per parcel</li>
+            <li><strong>Conservation Proximity:</strong> Properties may have setback requirements or environmental restrictions</li>
+            <li><strong>SDU Regulations:</strong> SDU regs and DC exemptions should be confirmed with City before marketing "multi-generational" features</li>
+            <li><strong>Build Timeline:</strong> 18-month design-to-permit window is tight for custom luxury builds; engage architect/engineer early</li>
+        </ul>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- SECTION 13: VERIFICATION -->
+    <!-- ============================================================ -->
+    <div class="section" id="verification">
+        <div class="section-header">
+            <i class="section-icon fa-solid fa-clipboard-check"></i>
+            <span class="section-number">Section 13</span>
+        </div>
+        <h2 class="section-title">Fact-Check &amp; Verification Status</h2>
+        <p class="section-description">
+            Data verification status for all claims made in this report. Verified data is approved for marketing use; flagged items require confirmation before external communication.
+        </p>
+
+        <h3>Verified Data</h3>
+        <ul class="styled-list check-list">
+            <li><strong>Webster's Falls:</strong> 22 metres, curtain waterfall, Spencer Gorge Conservation Area</li>
+            <li><strong>Tew's Falls:</strong> 41 metres, ribbon waterfall (tallest in Hamilton)</li>
+            <li><strong>Development Charges:</strong> 20% reduction (Sept 1, 2025 – Aug 31, 2027); savings $19,702/unit</li>
+            <li><strong>Home Renovation Savings Program:</strong> Active; geothermal, heat pump, solar rebates confirmed</li>
+            <li><strong>Dundas Valley SS:</strong> Advanced Placement programs confirmed</li>
+            <li><strong>Population:</strong> 581 residents, 215 households (community survey data)</li>
+            <li><strong>Hamilton Market 2026:</strong> Buyer-favourable conditions, 39.4% sales-to-listing ratio, 3% sales growth projected</li>
+            <li><strong>Owner Occupancy:</strong> 96–100% owner-occupancy (exceptional stability)</li>
+        </ul>
+
+        <h3>Items Requiring Verification</h3>
+        <div class="highlight-box-warning">
+            <div class="highlight-box-title" style="color: #c0392b;"><i class="fa-solid fa-triangle-exclamation" style="color: #e67e22;"></i> Do Not Use in Marketing Until Verified</div>
+            <p></p>
+        </div>
+        <ul class="styled-list warning-list">
+            <li><strong>SDU Housing Accelerator Fund:</strong> Confirm $25,000 loan and $2,000 permit rebate availability for Greensville's rural HHCIPA boundaries</li>
+            <li><strong>Home Renovation Savings Program Fuel Types:</strong> Program currently excludes propane/oil heating. Verify natural gas availability on specific lots before guaranteeing rebates</li>
+            <li><strong>SDU By-law 05-200:</strong> Confirm current zoning status and SDU regulations for Flamborough jurisdiction</li>
+            <li><strong>Conservation Authority Restrictions:</strong> Verify ecological or development restrictions on specific parcels before acquisition</li>
+        </ul>
+
+        <div class="highlight-box" style="margin-top: 36px;">
+            <div class="highlight-box-title"><i class="fa-solid fa-calendar-check"></i> Document Currency</div>
+            <p>
+                <strong>Prepared:</strong> January 27, 2026<br>
+                <strong>Valid Through:</strong> August 31, 2027 (DC incentive deadline)<br>
+                <strong>Review Frequency:</strong> Quarterly (market conditions, regulatory changes, incentive status)<br><br>
+                <em style="font-size: 0.88rem; color: var(--text-gray);">This document consolidates publicly available community data, municipal records, and current market analysis. All claims regarding municipal incentives, zoning, and development charges should be verified with the City of Hamilton and relevant conservation authorities before marketing representation to potential buyers.</em>
+            </p>
+        </div>
+
+        <a href="#toc" class="back-to-top"><i class="fa-solid fa-arrow-up"></i> Back to Table of Contents</a>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================================ -->
+    <div class="report-footer">
+        <div class="report-footer-left">
+            <div class="report-footer-brand">Greensville Estates</div>
+            <div>Upper Paradise Developments Inc. &bull; 190 Highway 8, Hamilton, Ontario</div>
+        </div>
+        <div class="report-footer-right">
+            <div>Market &amp; Development Guide</div>
+            <div>Compiled January 27, 2026</div>
+            <div style="margin-top: 6px; font-size: 0.7rem; opacity: 0.5;">CONFIDENTIAL — For Authorized Recipients Only</div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
